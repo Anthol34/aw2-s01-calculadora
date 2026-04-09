@@ -10,20 +10,20 @@ func main() {
 	fmt.Println("Ingresa el segundo número:")
 	fmt.Scanln(&num2)
 	fmt.Println("Ingresa la operación (+, -, *, /):")
-	var operacion string
-	fmt.Scanln(&operacion)
-	switch operacion {
+	var op string
+	fmt.Scanln(&op)
+	switch op {
 	case "+":
-		fmt.Printf("Resultado: %.2f\n", num1+num2)
+		fmt.Printf("Resultado %.2f %s %.2f: %.2f\n", num1, op, num2, num1+num2)
 	case "-":
-		fmt.Printf("Resultado: %.2f\n", num1-num2)
+		fmt.Printf("Resultado %.2f %s %.2f: %.2f\n", num1, op, num2, num1-num2)
 	case "*":
-		fmt.Printf("Resultado: %.2f\n", num1*num2)
+		fmt.Printf("Resultado %.2f %s %.2f: %.2f\n", num1, op, num2, num1*num2)
 	case "/":
 		if num2 != 0 {
-			fmt.Printf("Resultado: %.2f\n", num1/num2)
+			fmt.Printf("Resultado %.2f %s %.2f: %.2f\n", num1, op, num2, num1/num2)
 		} else {
-			fmt.Println("Error: División por cero")
+			fmt.Println("Error: no se puede dividir por cero")
 		}
 	default:
 		fmt.Println("Operación no válida")
