@@ -3,29 +3,50 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("==== CALCULARORA CIENTÍFICA v1.0 ====")
-	var num1, num2 float64
-	fmt.Println("Ingresa el primer número:")
-	fmt.Scanln(&num1)
-	fmt.Println("Ingresa el segundo número:")
-	fmt.Scanln(&num2)
-	fmt.Println("Ingresa la operación (+, -, *, /):")
-	var op string
-	fmt.Scanln(&op)
-	switch op {
+	fmt.Println("==== CALCULADORA CIENTÍFICA v1.0 ====")
+	var a float64
+	fmt.Println("Ingrese el primer numero:")
+	fmt.Scanln(&a)
+	var b float64
+	fmt.Println("Ingrese el segundo numero:")
+	fmt.Scanln(&b)
+	var ope string
+	fmt.Println("Ingresa la operación (+, -, *, /,^,!):")
+	fmt.Scanln(&ope)
+
+	switch ope {
 	case "+":
-		fmt.Printf("Resultado %.2f %s %.2f: %.2f\n", num1, op, num2, num1+num2)
+		fmt.Println("SUMA")
+		var su float64 = a + b
+		fmt.Println("Resultado", a, ope, b, "=", su)
 	case "-":
-		fmt.Printf("Resultado %.2f %s %.2f: %.2f\n", num1, op, num2, num1-num2)
+		fmt.Println("RESTA")
+		var re float64 = a - b
+		fmt.Println("Resultado", a, ope, b, "=", re)
 	case "*":
-		fmt.Printf("Resultado %.2f %s %.2f: %.2f\n", num1, op, num2, num1*num2)
+		fmt.Println("MULTIPLICACION")
+		var mul float64 = a * b
+		fmt.Println("Resultado", a, ope, b, "=", mul)
 	case "/":
-		if num2 != 0 {
-			fmt.Printf("Resultado %.2f %s %.2f: %.2f\n", num1, op, num2, num1/num2)
-		} else {
-			fmt.Println("Error: no se puede dividir por cero")
+		fmt.Println("DIVISION")
+		var div float64 = a / b
+		fmt.Printf(`"Resultado =" %.2f %s %.2f: %.2f`, a, ope, b, div)
+	case "^":
+		fmt.Println("POTENCIA")
+		var pot float64 = 1
+		for i := 0; i < int(b); i++ {
+			pot *= a
 		}
+		fmt.Println("Resultado", a, ope, b, "=", pot)
+	case "!":
+		fmt.Println("FACTORIAL")
+		var fact float64 = 1
+		for i := 1; i <= int(a); i++ {
+			fact *= float64(i)
+		}
+		fmt.Println("Resultado", a, ope, "=", fact)
+
 	default:
-		fmt.Println("Operación no válida")
+		fmt.Println("WEON")
 	}
 }
